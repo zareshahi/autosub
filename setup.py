@@ -34,7 +34,7 @@ setup(
         'requests>=2.3.0',
         'pysubs2>=0.2.4',
         'progressbar2>=3.34.3',
-        'auditok>=0.1.5',
+        'auditok>=0.1.5,<=0.1.8',
         'googletrans>=2.4.0',
         'wcwidth>=0.1.7',
         'fuzzywuzzy>=0.18.0',
