@@ -92,11 +92,11 @@ Autosub依赖于这些第三方的软件或者Python的site-packages。非常感
 - [Visual Studio 2019 生成工具](https://visualstudio.microsoft.com/downloads/)
   - [marisa-trie](https://github.com/pytries/marisa-trie)安装时会用到。
   - [marisa-trie](https://github.com/pytries/marisa-trie)是[langcodes](https://github.com/LuminosoInsight/langcodes)的依赖。
-  - 大概需要安装以下两个组件：MSVC v14 VS 2019 C++生成工具, windows 10 SDK。
+  - 大概需要安装以下两个组件：MSVC VS C++生成工具, windows 10 SDK。
 
 #### 必需依赖
 
-- [auditok 0.1.5](https://github.com/amsehili/auditok)
+- [auditok](https://github.com/amsehili/auditok)
 - [pysubs2](https://github.com/tkarabela/pysubs2)
 - [wcwidth](https://github.com/jquast/wcwidth)
 - [requests](https://github.com/psf/requests)

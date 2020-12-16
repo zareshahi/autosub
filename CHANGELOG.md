@@ -72,6 +72,7 @@ Click up arrow to go back to TOC.
 
 - Change the default value for `-et` option into 50.
 - Change the control flow in method audio_or_video_prcs by using args.output_files to control.
+- Change ci to github actions by [@jitingcn](https://github.com/jitingcn).
 
 #### Fixed(Unreleased)
 
@@ -81,6 +82,8 @@ Click up arrow to go back to TOC.
 - Fix last word in line not reading in method YTBWebVTT.from_file.
 - Fix wrong return value in method list_to_googletrans. [issue #136](https://github.com/BingLingGroup/autosub/issues/136)
 - Fix youtube vtt multiple words using one timestamp issue.
+- Fix output file path in method str_to_file by [@jitingcn](https://github.com/jitingcn).
+- Fix out of range when output bilingual subtitles with -der option by [@jitingcn](https://github.com/jitingcn).
 - Fix Auditok v0.1.8+ compatibility issue.
 
 ### [0.5.7-alpha] - 2020-05-06

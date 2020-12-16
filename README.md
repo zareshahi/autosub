@@ -92,11 +92,11 @@ For windows user:
 - [Build Tools for Visual Studio 2019](https://visualstudio.microsoft.com/downloads/)
   - Used by [marisa-trie](https://github.com/pytries/marisa-trie) when installing.
   - [marisa-trie](https://github.com/pytries/marisa-trie) is the dependency of the [langcodes](https://github.com/LuminosoInsight/langcodes).
-  - Probable components installation: MSVC v14 VS 2019 C++ build tools, windows 10 SDK.
+  - Probable components installation: MSVC VS C++ build tools, windows 10 SDK.
 
 #### Required dependencies
 
-- [auditok 0.1.5](https://github.com/amsehili/auditok)
+- [auditok](https://github.com/amsehili/auditok)
 - [pysubs2](https://github.com/tkarabela/pysubs2)
 - [wcwidth](https://github.com/jquast/wcwidth)
 - [requests](https://github.com/psf/requests)

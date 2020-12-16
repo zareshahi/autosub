@@ -70,6 +70,7 @@
 
 - 修改`-et`默认参数为50。
 - 修改方法audio_or_video_prcs的控制流程，使用args.output_files来控制。
+- 修改ci为github actions，由[@jitingcn](https://github.com/jitingcn)完成。
 
 #### 修复(未发布)
 
@@ -79,6 +80,8 @@
 - 修复vtt读取不到每行最后一个词的问题，在方法YTBWebVTT.from_file中。
 - 修复list_to_googletrans中错误的返回值。[issue #136](https://github.com/BingLingGroup/autosub/issues/136)
 - 修复youtube vtt多个单词共用一个时间戳问题。
+- 修复输出文件路径问题，在方法str_to_file中，由[@jitingcn](https://github.com/jitingcn)完成。
+- 修复使用-der选项时输出双语字幕的越界问题，由[@jitingcn](https://github.com/jitingcn)完成。
 - 修复Auditok v0.1.8+兼容性问题。
 
 ### [0.5.7-alpha] - 2020-05-06
