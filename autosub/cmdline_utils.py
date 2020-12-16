@@ -732,6 +732,11 @@ def sub_conversion(  # pylint: disable=too-many-branches, too-many-statements, t
         if not src_sub.vtt_words:
             raise exceptions.AutosubException(_("\nError: Input WebVTT file is invalid."))
         args.output_files = {"join-events"}
+    elif args.input.endswith('json'):
+        src_sub = sub_utils.YTBWebVTT.from_json_file(args.input)
+        if not src_sub.vtt_words:
+            raise exceptions.AutosubException(_("\nError: Input WebVTT file is invalid."))
+        args.output_files = {"join-events"}
     else:
         src_sub = pysubs2.SSAFile.load(args.input)
         if args.styles:
@@ -857,7 +862,7 @@ def sub_conversion(  # pylint: disable=too-many-branches, too-many-statements, t
         else:
             args.join_control = set()
 
-        if args.input.endswith('vtt'):
+        if args.input.endswith('vtt') or args.input.endswith('json'):
             new_sub = pysubs2.SSAFile()
             if not args.ext_regions:
                 print(_("External audio/video regions is not provided. Use manual method instead."))

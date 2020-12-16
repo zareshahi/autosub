@@ -64,6 +64,7 @@
 - 添加速度限制在trim在join-events中。
 - 添加split_dst_lf_src_assfile方法来分离同行双语字幕。
 - 添加当前工作路径文件名重命名支持。
+- 添加youtube自动字幕json格式行合并功能。
 
 #### 改动(未发布)
 
@@ -78,6 +79,7 @@
 - 修复vtt读取不到每行最后一个词的问题，在方法YTBWebVTT.from_file中。
 - 修复list_to_googletrans中错误的返回值。[issue #136](https://github.com/BingLingGroup/autosub/issues/136)
 - 修复youtube vtt多个单词共用一个时间戳问题。
+- 修复Auditok v0.1.8+兼容性问题。
 
 ### [0.5.7-alpha] - 2020-05-06
 

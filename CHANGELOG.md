@@ -66,6 +66,7 @@ Click up arrow to go back to TOC.
 - Add speed limit in trim in join-events.
 - Add method split_dst_lf_src_assfile to split bilingual subtitles file's events.
 - Add current working directory support in file renaming.
+- Add join-events support for youtube automatic caption in json format.
 
 #### Changed(Unreleased)
 
@@ -80,6 +81,7 @@ Click up arrow to go back to TOC.
 - Fix last word in line not reading in method YTBWebVTT.from_file.
 - Fix wrong return value in method list_to_googletrans. [issue #136](https://github.com/BingLingGroup/autosub/issues/136)
 - Fix youtube vtt multiple words using one timestamp issue.
+- Fix Auditok v0.1.8+ compatibility issue.
 
 ### [0.5.7-alpha] - 2020-05-06
 

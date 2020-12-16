@@ -849,6 +849,37 @@ def list_to_googletrans(  # pylint: disable=too-many-locals, too-many-arguments,
     return translated_text, result_src
 
 
+# def trans_text_correction(
+#         text,
+#         trans_text
+# ):
+#     """
+#     Check and correct the wrong translation text provided by deepl.
+#     """
+#     text_list = text.split('\n')
+#     trans_text_list = trans_text.split('\n')
+#     i = 0
+#     length = min(len(text_list), len(trans_text_list)) - 1
+#     while i < length:
+#         strip_string = string.punctuation + string.whitespace
+#         trans_content = trans_text_list[i].strip(strip_string)
+#         text_content = text_list[i].strip(strip_string)
+#         if len(trans_content) > len(text_content) and\
+#                 trans_content.endswith(text_content):
+#             target_content = trans_content[:len(trans_content)
+#                                            - len(text_content)]
+#             j = 0
+#             k = 0
+#             target_len = len(target_content)
+#             while j < target_len:
+#                 if trans_text_list[i][k] not in strip_string:
+#                     j = j + 1
+#                 k = k + 1
+#             trans_text_list[i] = trans_text_list[i][:k]
+#         i = i + 1
+#     return '\n'.join(trans_text_list)
+
+
 class ManualTranslator:  # pylint: disable=too-few-public-methods
     """
     Class for performing translation manually.

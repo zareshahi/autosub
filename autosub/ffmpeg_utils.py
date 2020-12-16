@@ -125,7 +125,7 @@ def ffprobe_get_fps(  # pylint: disable=superfluous-parens
         else:
             raise ValueError
 
-    except (subprocess.CalledProcessError, ValueError):
+    except (subprocess.CalledProcessError, ValueError) as fps_issue:
         print(_("ffprobe can't get video fps.\n"
                 "It is necessary when output is \".sub\"."))
         if input_m:
@@ -134,7 +134,7 @@ def ffprobe_get_fps(  # pylint: disable=superfluous-parens
             try:
                 fps = float(input_str)
                 if fps <= 0.0:
-                    raise ValueError  # pylint: disable=raise-missing-from
+                    raise ValueError from fps_issue
             except ValueError:
                 print(_("Use \".srt\" instead."))
                 fps = 0.0

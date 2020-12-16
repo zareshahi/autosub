@@ -204,7 +204,6 @@ class YTBWebVTT:  # pylint: disable=too-many-nested-blocks, too-many-branches, t
         subs = cls()
         subs.path = path
         last_timestamp = None
-        j = 0
         file_p = open(path, encoding=encoding)
         line_list = file_p.readlines()
         line_list = line_list[4:]
@@ -274,6 +273,36 @@ class YTBWebVTT:  # pylint: disable=too-many-nested-blocks, too-many-branches, t
         else:
             last_speed = 10
         subs.vtt_words[-1].speed = last_speed
+        return subs
+
+    @classmethod
+    def from_json_file(cls,
+                       path,
+                       encoding="utf-8"):
+        """
+        Get youtube WebVTT from a timed text json file.
+        """
+        subs = cls()
+        subs.path = path
+        with open(path, encoding=encoding) as sub_fp:
+            sub_dict = json.load(sub_fp)
+        events = sub_dict.get("events")
+        if events:
+            for event in events:
+                segs = event.get("segs")
+                if segs and segs[0]["utf8"] != r"\n" and segs[0]["utf8"] != "\n":
+                    event_start_ms = event["tStartMs"]
+                    event_end_ms = event["dDurationMs"] + event_start_ms
+                    subs.vtt_words.extend(split_vtt_word(VTTWord(
+                        word=segs[0]["utf8"].lstrip().rstrip(),
+                        start=event_start_ms, end=0)))
+                    for seg in segs[1:]:
+                        start_ms = seg["tOffsetMs"] + event_start_ms
+                        subs.vtt_words[-1].end = start_ms
+                        subs.vtt_words.extend(split_vtt_word(VTTWord(
+                            word=seg["utf8"].lstrip().rstrip(),
+                            start=start_ms, end=0)))
+                    subs.vtt_words[-1].end = event_end_ms
         return subs
 
     def text_to_ass_events(self,
@@ -355,7 +384,7 @@ class YTBWebVTT:  # pylint: disable=too-many-nested-blocks, too-many-branches, t
         Get end timestamps from a SSAEvent list automatically by external regions.
         """
         events = []
-        path = self.path[:-3] + "txt"
+        path = os.path.splitext(self.path)[0] + ".txt"
         path = str_to_file(
             str_=self.to_text_str(),
             output=path,
