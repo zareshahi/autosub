@@ -65,6 +65,7 @@
 - 添加split_dst_lf_src_assfile方法来分离同行双语字幕。
 - 添加当前工作路径文件名重命名支持。
 - 添加youtube自动字幕json格式行合并功能。
+- 添加googletrans v4.0.0rc1支持在类ManualTranslator中。
 
 #### 改动(未发布)
 

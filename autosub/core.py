@@ -944,9 +944,13 @@ class ManualTranslator:  # pylint: disable=too-few-public-methods
             trans_doc_str = trans_doc.read()
             trans_doc.close()
         constants.DELETE_PATH(self.trans_doc_name)
+        temp_str = "manual"
+        temp_part = googletrans.client.TranslatedPart(
+            text=temp_str,
+            candidates=[temp_str])
         return googletrans.client.Translated(
-            src=src, dest=dest, origin="manual",
-            text=trans_doc_str, pronunciation="manual", extra_data="manual")
+            src=src, dest=dest, origin=temp_str, text=trans_doc_str,
+            pronunciation=temp_str, parts=[temp_part], extra_data=temp_str)
 
 
 def list_to_sub_str(

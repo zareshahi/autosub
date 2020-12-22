@@ -67,6 +67,7 @@ Click up arrow to go back to TOC.
 - Add method split_dst_lf_src_assfile to split bilingual subtitles file's events.
 - Add current working directory support in file renaming.
 - Add join-events support for youtube automatic caption in json format.
+- Add support for googletrans v4.0.0rc1 in class ManualTranslator.
 
 #### Changed(Unreleased)
 

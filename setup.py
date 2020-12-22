@@ -35,7 +35,7 @@ setup(
         'pysubs2>=0.2.4',
         'progressbar2>=3.34.3',
         'auditok>=0.1.5,<=0.1.8',
-        'googletrans>=2.4.0',
+        'googletrans>=4.0.0rc1',
         'wcwidth>=0.1.7',
         'fuzzywuzzy>=0.18.0',
         'google-cloud-speech>=1.3.1,<2.0.0',

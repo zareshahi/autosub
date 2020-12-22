@@ -155,7 +155,7 @@ Due to the autosub PyPI project is maintained by the original autosub repo's own
 
 [dev branch](https://github.com/BingLingGroup/autosub/tree/dev)
 
-- The latest codes will be pushed to this branch. If it works fine, it will be merged to alpha branch when new version released.
+- The latest codes will be pushed to this branch. If it works fine, it will be merged to alpha branch when new version is released.
 - Only used to test or pull request. Don't install them unless you know what you are doing.
 
 <escape><a href = "#TOC">&nbsp;↑&nbsp;</a></escape>
@@ -253,7 +253,7 @@ pip install git+https://github.com/BingLingGroup/autosub.git@origin
 
 PyPI version(autosub-0.3.12) is not recommended using on windows because it just can't run successfully. See the [changelog on the origin branch](CHANGELOG.md#040-alpha---2019-02-17) and you will know the details.
 
-Recommend using `python` instead of `python2` autosub-0.4.0.
+Recommend using `python` instead of `python2` for autosub-0.4.0.
 
 <escape><a href = "#TOC">&nbsp;↑&nbsp;</a></escape>
 
@@ -270,7 +270,7 @@ Supported formats below:
 [Google-Speech-v2](https://github.com/gillesdemey/google-speech-v2)
 
 - 24bit/44100Hz/mono FLAC(default)
-- Other format like OGG_OPUS isn't supported by API. (I've tried modifying requests headers or json requests and it just didn't work) Or format like PCM has less bits per sample but more storage usage than FLAC. Although the API support it but I think it's unnecessary to modify codes to support it.
+- Other format like OGG_OPUS isn't supported by API. (I've tried modifying requests headers or json requests and it just don't work) Or format like PCM has less bits per sample but more storage usage than FLAC. Although the API support it but I think it's unnecessary to modify codes to support it.
 
 [Google Cloud Speech-to-Text API](https://cloud.google.com/speech-to-text/docs/encoding) [v1p1beta1](https://cloud.google.com/speech-to-text/docs/reference/rest/v1p1beta1/RecognitionConfig#AudioEncoding)
 
