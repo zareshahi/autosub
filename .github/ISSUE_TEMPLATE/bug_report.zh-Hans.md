@@ -18,7 +18,7 @@ assignees: ''
 - 你使用的命令行参数。推荐使用以下的代码块markdown语法，将代码块复制到\`\`\`和\`\`\`之间即可。
 
 ```
-使用这个来显示你的命令行参数。
+使用这个来显示你用来运行的命令行参数。
 ```
 
 - 一份完整的autosub命令行输出。你可以使用`Ctrl-A`和`Ctrl-C`去复制所有输出。
@@ -43,9 +43,9 @@ assignees: ''
 
 **操作环境（请提供以下完整数据）：**
 
-- 操作系统: [譬如 windows]
-- Python版本: [譬如 Python 3.7]
-- Autosub版本: [譬如 0.4.1-alpha或0.5.4-alpha Nuitka windows发布版]
+- 操作系统: [譬如windows]
+- Python版本: [譬如Python 3.7，但使用发布版(独立运行版)时不用注明]
+- Autosub版本: [譬如0.4.1-alpha或0.5.4-alpha Nuitka windows发布版]
 
 **额外信息**（可选）
 任何其他的能描述问题的信息。

@@ -18,7 +18,7 @@ Steps to reproduce the behavior:
 - Command line arguments you are using.Use the following markdown code block syntax is recommended. Copy them into the place between \`\`\`.
 
 ```
-Use this to display your command line arguments.
+Use this to display your command line arguments used to run the program.
 ```
 
 - A complete copy of command line output of the autosub. You can use `Ctrl-A` and `Ctrl-C` to copy all of them. 
@@ -44,7 +44,7 @@ If applicable, add screenshots to help explain your problem. But it is not recom
 **Environment (please complete the following information):**
 
 - OS: [e.g. windows]
-- Python Version: [e.g. Python 3.7]
+- Python Version: [e.g. Python 3.7, except when you are using the release(standalone) version]
 - Autosub Version: [e.g. 0.4.1-alpha/0.5.4-alpha Nuitka windows release]
 
 **Additional context** (Optional)

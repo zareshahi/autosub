@@ -202,7 +202,7 @@ Recommend using `python3` and `python-pip3` instead of `python` and `python-pip`
 
 #### Install on Windows
 
-You can just go to the [release page](https://github.com/BingLingGroup/autosub/releases) and download the latest release for Windows. The click-and-run batches are also in the package. You can manually edit by using Notepad++. Or add the executable files' directory to system environment variables so you can use it as a universal command everywhere in the system if permission is Ok.
+You can just go to the [release page](https://github.com/BingLingGroup/autosub/releases) and download the latest release(standalone version) for Windows. Thre release version can run without the python environment. The click-and-run batches are also in the package. You can manually edit by using Notepad++. Or add the executable files' directory to system environment variables so you can use it as a universal command everywhere in the system if permission is Ok.
 
 Tips: `Shift - Right Click` is the keyboard shortcut for opening a Powershell on current directory. To open an exe at current directory, the format is like `.\autosub`.
 
@@ -592,6 +592,7 @@ Example speech config file:
     "app_id": "",
     "api_secret": "",
     "api_key": "",
+    "api_address": "",
     "business": {
         "language": "zh_cn",
         "domain": "iat",
@@ -600,7 +601,7 @@ Example speech config file:
 }
 ```
 
-`"business"` field is the same as the [xfyun document](https://www.xfyun.cn/doc/asr/voicedictation/API.html#%E4%B8%9A%E5%8A%A1%E5%8F%82%E6%95%B0) mentioned.
+`"business"`/`"api_address"` field is the same as the [xfyun document](https://www.xfyun.cn/doc/asr/voicedictation/API.html#%E4%B8%9A%E5%8A%A1%E5%8F%82%E6%95%B0) mentioned.
 
 When the file doesn't include the `"business"` field, autosub will use the above default content instead.
 

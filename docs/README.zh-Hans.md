@@ -202,7 +202,7 @@ pip install autosub
 
 #### 在Windows上安装
 
-你可以直接去[发布页](https://github.com/BingLingGroup/autosub/releases)下载Windows的最新发布版。包内自带懒人批处理。你可以使用Notepad++对其进行手动修改。或者把含有exe的目录放到系统环境变量里，这样你就可以在别的目录也使用autosub了，前提是那个目录没有权限限制。
+你可以直接去[发布页](https://github.com/BingLingGroup/autosub/releases)下载Windows的最新发布版(独立运行版)。使用发布版不需要安装python环境。包内自带懒人批处理。你可以使用Notepad++对其进行手动修改。或者把含有exe的目录放到系统环境变量里，这样你就可以在别的目录也使用autosub了，前提是那个目录没有权限限制。
 
 建议：`Shift - 右键`是打开当前目录Powershell的快捷键。Powershell打开当前目录的exe需要输入这样的格式`.\autosub`。
 
@@ -592,6 +592,7 @@ autosub -i 输入文件 -sconf json格式配置文件 -bm all -sapi gcsv1 -skey 
     "app_id": "",
     "api_secret": "",
     "api_key": "",
+    "api_address": "",
     "business": {
         "language": "zh_cn",
         "domain": "iat",
@@ -600,7 +601,7 @@ autosub -i 输入文件 -sconf json格式配置文件 -bm all -sapi gcsv1 -skey 
 }
 ```
 
-`"business"`属性和[讯飞文档](https://www.xfyun.cn/doc/asr/voicedictation/API.html#%E4%B8%9A%E5%8A%A1%E5%8F%82%E6%95%B0)里所说的一样。
+`"business"`/`"api_address"`属性和[讯飞文档](https://www.xfyun.cn/doc/asr/voicedictation/API.html#%E4%B8%9A%E5%8A%A1%E5%8F%82%E6%95%B0)里所说的一样。
 
 当文件中不包含`"business"`属性时，autosub会使用如上的默认内容。
 
