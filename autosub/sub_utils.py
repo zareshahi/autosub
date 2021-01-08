@@ -905,9 +905,10 @@ def split_dst_lf_src_assfile(  # pylint: disable=too-many-locals, too-many-branc
     new_events_1 = []
     new_events_2 = []
 
-    if len(style_name) == 1:
-        style_name = [style_name[0], style_name[0]]
-    elif not style_name:
+    if style_name:
+        if len(style_name) == 1:
+            style_name = [style_name[0], style_name[0]]
+    else:
         style_name = [events_1[0].style, events_1[0].style]
 
     for event in events_1:

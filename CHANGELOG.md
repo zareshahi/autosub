@@ -86,6 +86,7 @@ Click up arrow to go back to TOC.
 - Fix output file path in method str_to_file by [@jitingcn](https://github.com/jitingcn).
 - Fix out of range when output bilingual subtitles with -der option by [@jitingcn](https://github.com/jitingcn).
 - Fix Auditok v0.1.8+ compatibility issue.
+- Fix style_name issue in method split_dst_lf_src_assfile.
 
 ### [0.5.7-alpha] - 2020-05-06
 
