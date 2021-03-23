@@ -87,6 +87,7 @@ Click up arrow to go back to TOC.
 - Fix out of range when output bilingual subtitles with -der option by [@jitingcn](https://github.com/jitingcn).
 - Fix Auditok v0.1.8+ compatibility issue.
 - Fix style_name issue in method split_dst_lf_src_assfile.
+- Fix unable to type into the terminal after running by [@9mido](https://github.com/9mido).
 
 ### [0.5.7-alpha] - 2020-05-06
 

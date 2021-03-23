@@ -769,7 +769,7 @@ def sub_conversion(  # pylint: disable=too-many-branches, too-many-statements, t
                 "created at \"{}\".").format(subtitles_file_path))
 
         if not args.output_files:
-            raise exceptions.AutosubException(_("\nAll works done."))
+            raise exceptions.AutosubException(_("\nAll work done."))
 
     except KeyError:
         pass
@@ -792,7 +792,7 @@ def sub_conversion(  # pylint: disable=too-many-branches, too-many-statements, t
                 "created at \"{}\".").format(subtitles_file_path))
 
         if not args.output_files:
-            raise exceptions.AutosubException(_("\nAll works done."))
+            raise exceptions.AutosubException(_("\nAll work done."))
 
     except KeyError:
         pass
@@ -815,7 +815,7 @@ def sub_conversion(  # pylint: disable=too-many-branches, too-many-statements, t
                 "created at \"{}\".").format(subtitles_file_path))
 
         if not args.output_files:
-            raise exceptions.AutosubException(_("\nAll works done."))
+            raise exceptions.AutosubException(_("\nAll work done."))
 
     except KeyError:
         pass
@@ -839,7 +839,7 @@ def sub_conversion(  # pylint: disable=too-many-branches, too-many-statements, t
                 "created at \"{}\".").format(subtitles_file_path))
 
         if not args.output_files:
-            raise exceptions.AutosubException(_("\nAll works done."))
+            raise exceptions.AutosubException(_("\nAll work done."))
 
     except KeyError:
         pass
@@ -1036,7 +1036,7 @@ def sub_conversion(  # pylint: disable=too-many-branches, too-many-statements, t
                 "created at \"{}\".").format(subtitles_file_path))
 
         if not args.output_files:
-            raise exceptions.AutosubException(_("\nAll works done."))
+            raise exceptions.AutosubException(_("\nAll work done."))
 
     except KeyError:
         pass
@@ -1139,7 +1139,7 @@ def sub_trans(  # pylint: disable=too-many-branches, too-many-statements, too-ma
                 "created at \"{}\".").format(subtitles_file_path))
 
         if not args.output_files:
-            raise exceptions.AutosubException(_("\nAll works done."))
+            raise exceptions.AutosubException(_("\nAll work done."))
 
     except KeyError:
         pass
@@ -1182,7 +1182,7 @@ def sub_trans(  # pylint: disable=too-many-branches, too-many-statements, too-ma
                 "created at \"{}\".").format(subtitles_file_path))
 
         if not args.output_files:
-            raise exceptions.AutosubException(_("\nAll works done."))
+            raise exceptions.AutosubException(_("\nAll work done."))
 
     except KeyError:
         pass
@@ -1225,7 +1225,7 @@ def sub_trans(  # pylint: disable=too-many-branches, too-many-statements, too-ma
                 "created at \"{}\".").format(subtitles_file_path))
 
         if not args.output_files:
-            raise exceptions.AutosubException(_("\nAll works done."))
+            raise exceptions.AutosubException(_("\nAll work done."))
 
     except KeyError:
         pass
@@ -1404,7 +1404,7 @@ def audio_or_video_prcs(  # pylint: disable=too-many-branches, too-many-statemen
         print(_("Times file created at \"{}\".").format(subtitles_file_path))
 
         if not args.output_files:
-            raise exceptions.AutosubException(_("\nAll works done."))
+            raise exceptions.AutosubException(_("\nAll work done."))
 
     except KeyError:
         pass
@@ -1429,7 +1429,7 @@ def audio_or_video_prcs(  # pylint: disable=too-many-branches, too-many-statemen
 
     if args.audio_process and 's' in args.audio_process:
         raise exceptions.AutosubException(
-            _("Audio processing complete.\nAll works done."))
+            _("Audio processing complete.\nAll work done."))
 
     try:
         args.output_files.remove("full-src")
@@ -1567,11 +1567,11 @@ def audio_or_video_prcs(  # pylint: disable=too-many-branches, too-many-statemen
                 "file created at \"{}\".").format(result_file_path))
 
         if not args.output_files:
-            raise exceptions.AutosubException(_("\nAll works done."))
+            raise exceptions.AutosubException(_("\nAll work done."))
 
     if not text_list or len(text_list) != len(regions):
         raise exceptions.SpeechToTextException(
-            _("Error: Speech-to-text failed.\nAll works done."))
+            _("Error: Speech-to-text failed.\nAll work done."))
 
     timed_text = get_timed_text(
         is_empty_dropped=args.drop_empty_regions,
@@ -1607,7 +1607,7 @@ def audio_or_video_prcs(  # pylint: disable=too-many-branches, too-many-statemen
                 "file created at \"{}\".").format(subtitles_file_path))
 
         if not args.output_files:
-            raise exceptions.AutosubException(_("\nAll works done."))
+            raise exceptions.AutosubException(_("\nAll work done."))
 
     except KeyError:
         pass
@@ -1670,7 +1670,7 @@ def audio_or_video_prcs(  # pylint: disable=too-many-branches, too-many-statemen
                 "created at \"{}\".").format(subtitles_file_path))
 
         if not args.output_files:
-            raise exceptions.AutosubException(_("\nAll works done."))
+            raise exceptions.AutosubException(_("\nAll work done."))
 
     except KeyError:
         pass
@@ -1716,7 +1716,7 @@ def audio_or_video_prcs(  # pylint: disable=too-many-branches, too-many-statemen
                 "created at \"{}\".").format(subtitles_file_path))
 
         if not args.output_files:
-            raise exceptions.AutosubException(_("\nAll works done."))
+            raise exceptions.AutosubException(_("\nAll work done."))
 
     except KeyError:
         pass
@@ -1762,7 +1762,7 @@ def audio_or_video_prcs(  # pylint: disable=too-many-branches, too-many-statemen
                 "created at \"{}\".").format(subtitles_file_path))
 
         if not args.output_files:
-            raise exceptions.AutosubException(_("\nAll works done."))
+            raise exceptions.AutosubException(_("\nAll work done."))
 
     except KeyError:
         pass

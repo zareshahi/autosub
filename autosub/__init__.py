@@ -64,7 +64,7 @@ def main():  # pylint: disable=too-many-branches, too-many-statements, too-many-
             args.auditok_config = cmdline_utils.validate_json_config(args.auditok_config)
 
         if cmdline_utils.list_args(args):
-            raise exceptions.AutosubException(_("\nAll works done."))
+            raise exceptions.AutosubException(_("\nAll work done."))
 
         if not args.yes:
             input_m = input
@@ -108,7 +108,7 @@ def main():  # pylint: disable=too-many-branches, too-many-statements, too-many-
 
                     args.input = prcs_file
                     raise exceptions.AutosubException(
-                        _("Audio pre-processing complete.\nAll works done."))
+                        _("Audio pre-processing complete.\nAll work done."))
 
                 if 's' in args.audio_process:
                     args.keep = True
@@ -190,7 +190,7 @@ def main():  # pylint: disable=too-many-branches, too-many-statements, too-many-
                     fps=fps
                 )
 
-        raise exceptions.AutosubException(_("\nAll works done."))
+        raise exceptions.AutosubException(_("\nAll work done."))
 
     except KeyboardInterrupt:
         print(_("\nKeyboardInterrupt. Works stopped."))
@@ -201,4 +201,8 @@ def main():  # pylint: disable=too-many-branches, too-many-statements, too-many-
 
     if is_pause:
         input(_("Press Enter to exit..."))
+
+    if constants.IS_UNIX:
+        os.system('stty sane')
+
     return 0

@@ -85,6 +85,7 @@
 - 修复使用-der选项时输出双语字幕的越界问题，由[@jitingcn](https://github.com/jitingcn)完成。
 - 修复Auditok v0.1.8+兼容性问题。
 - 修复style_name问题在方法split_dst_lf_src_assfile中。
+- 修复运行完程序后，终端无法输入的问题，由[@9mido](https://github.com/9mido)完成。
 
 ### [0.5.7-alpha] - 2020-05-06
 
