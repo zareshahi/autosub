@@ -433,10 +433,14 @@ def get_cmd_parser():  # pylint: disable=too-many-statements
         '-jctl', '--join-control',
         metavar=_('string'),
         nargs='*',
-        help=_("Control the way to join events when using vtt. "
+        help=_("Control the way to join and split subtitles' events. "
                "Key tag choice: [\"\\k\", \"\\ko\", \"\\kf\", (None)] (default: None). "
-               "Events manual adjustment: [\"man\", \"semi-auto\", \"auto\"] (default: man). "
-               "Auto capitalization and full stop: [\"cap\", (None)] (default: None). "
+               "Events manual adjustment: [\"man\", \"ext-auto\", "
+               "\"punct-auto\"] (default: man). "
+               "You can choose \"man\" and one \"*-auto\" method at the same time "
+               "which allows you to automatically adjust events at first "
+               "and then manually adjust them. "
+               "Capitalized the first word and add a full stop: [\"cap\", (None)] (default: None). "
                "Trim regions after processing: [\"trim\", (None)] (default: None). "
                "(arg_num >= 1)"))
 
@@ -643,6 +647,15 @@ def get_cmd_parser():  # pylint: disable=too-many-statements
         '-dts', '--drop-trailing-silence',
         action='store_true',
         help=_("Ref: https://auditok.readthedocs.io/en/latest/core.html#class-summary "
+               "(arg_num = 0)"))
+
+    auditok_group.add_argument(
+        '-am', '--auditok-mode',
+        type=int,
+        default=0,
+        help=_("Auditok mode used by \"--nsml\" and \"--dts\". "
+               "If used, it will override these two options mentioned above. "
+               "Ref: https://auditok.readthedocs.io/en/latest/core.html#class-summary "
                "(arg_num = 0)"))
 
     auditok_group.add_argument(

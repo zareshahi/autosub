@@ -66,12 +66,14 @@
 - 添加当前工作路径文件名重命名支持。
 - 添加youtube自动字幕json格式行合并功能。
 - 添加googletrans v4.0.0rc1支持在类ManualTranslator中。
+- 添加更多的字幕格式支持在sub_processing方法中，以方便分割及合并字幕行。
 
 #### 改动(未发布)
 
 - 修改`-et`默认参数为50。
 - 修改方法audio_or_video_prcs的控制流程，使用args.output_files来控制。
 - 修改ci为github actions，由[@jitingcn](https://github.com/jitingcn)完成。
+- 重构sub_conversion方法。
 
 #### 修复(未发布)
 
@@ -86,6 +88,8 @@
 - 修复Auditok v0.1.8+兼容性问题。
 - 修复style_name问题在方法split_dst_lf_src_assfile中。
 - 修复运行完程序后，终端无法输入的问题，由[@9mido](https://github.com/9mido)完成。
+
+<escape><a href = "#目录">&nbsp;↑&nbsp;</a></escape>
 
 ### [0.5.7-alpha] - 2020-05-06
 
