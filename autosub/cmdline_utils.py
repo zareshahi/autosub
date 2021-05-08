@@ -766,12 +766,15 @@ def sub_processing(  # pylint: disable=too-many-branches, too-many-statements, t
     else:
         stop_words_set_2 = constants.DEFAULT_ENGLISH_STOP_WORDS_SET_2
 
-    ext_name = os.path.splitext(args.ext_regions)
-    ext_ext = ext_name[-1]
-    ext_fmt = ext_ext.strip('.')
+    if args.ext_regions:
+        ext_name = os.path.splitext(args.ext_regions)
+        ext_ext = ext_name[-1]
+        ext_fmt = ext_ext.strip('.')
+    else:
+        ext_fmt = ""
 
     ass_events = None
-    if not args.ext_regions or ext_fmt in constants.INPUT_FORMAT:
+    if ext_fmt in constants.INPUT_FORMAT:
         print(_("External audio/video regions is not provided. "
                 "Can't use \"trim\"."))
         args.join_control = args.join_control - {"trim"}
