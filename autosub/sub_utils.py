@@ -306,12 +306,12 @@ class YTBWebVTT:  # pylint: disable=too-many-nested-blocks, too-many-branches, t
                     event_start_ms = event["tStartMs"]
                     event_end_ms = event["dDurationMs"] + event_start_ms
                     subs.vtt_words.extend(split_vtt_word(VTTWord(
-                        word=segs[0]["utf8"], start=event_start_ms, end=0)))
+                        word=segs[0]["utf8"].lstrip().rstrip(), start=event_start_ms, end=0)))
                     for seg in segs[1:]:
                         start_ms = seg["tOffsetMs"] + event_start_ms
                         subs.vtt_words[-1].end = start_ms
                         subs.vtt_words.extend(split_vtt_word(VTTWord(
-                            word=seg["utf8"], start=start_ms, end=0)))
+                            word=seg["utf8"].lstrip().rstrip(), start=start_ms, end=0)))
                     subs.vtt_words[-1].end = event_end_ms
         return subs
 
