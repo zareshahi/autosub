@@ -90,6 +90,7 @@
 - 修复style_name问题在方法split_dst_lf_src_assfile中。
 - 修复运行完程序后，终端无法输入的问题，由[@9mido](https://github.com/9mido)完成。
 - 修复args.ext_regions为None时对其操作的错误，在方法sub_processing中。
+- 修复vtt_sub为None时对其成员访问的错误，在方法sub_processing中。
 
 <escape><a href = "#目录">&nbsp;↑&nbsp;</a></escape>
 

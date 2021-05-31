@@ -92,6 +92,7 @@ Click up arrow to go back to TOC.
 - Fix style_name issue in method split_dst_lf_src_assfile.
 - Fix unable to type into the terminal after running by [@9mido](https://github.com/9mido).
 - Fix to avoid splitext on args.ext_regions when it's None in method sub_processing.
+- Fix to avoid access on vtt_sub class members when it's None in method sub_processing.
 
 <escape><a href = "#TOC">&nbsp;↑&nbsp;</a></escape>
 

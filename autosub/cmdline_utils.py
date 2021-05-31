@@ -728,6 +728,8 @@ def sub_processing(  # pylint: disable=too-many-branches, too-many-statements, t
     Give args and process a subtitles file.
     """
     new_sub = pysubs2.SSAFile()
+    vtt_sub = None
+    src_sub = None
 
     if args.join_control:
         args.join_control = set(args.join_control)
@@ -735,25 +737,25 @@ def sub_processing(  # pylint: disable=too-many-branches, too-many-statements, t
         args.join_control = {"man"}
 
     if args.input.endswith('vtt'):
-        src_sub = sub_utils.YTBWebVTT.from_vtt_file(args.input)
+        vtt_sub = sub_utils.YTBWebVTT.from_vtt_file(args.input)
     elif args.input.endswith('json'):
-        src_sub = sub_utils.YTBWebVTT.from_json_file(args.input)
+        vtt_sub = sub_utils.YTBWebVTT.from_json_file(args.input)
     else:
         if "punct-auto" in args.join_control:
             src_sub = pysubs2.SSAFile.load(args.input)
             args.join_control = args.join_control - {"ext-auto"}
         else:
-            src_sub = sub_utils.YTBWebVTT.from_pysubs2_file(args.input)
-            new_sub.styles = src_sub.styles
-            new_sub.info = src_sub.info
+            vtt_sub = sub_utils.YTBWebVTT.from_pysubs2_file(args.input)
+            new_sub.styles = vtt_sub.styles
+            new_sub.info = vtt_sub.info
+
+    if vtt_sub and not vtt_sub.vtt_words:
+        raise exceptions.AutosubException(_("\nError: Input is invalid."))
 
     if args.styles:
         style_sub = pysubs2.SSAFile.load(args.styles)
         new_sub.styles = style_sub.styles
         new_sub.info = style_sub.info
-
-    if not src_sub.vtt_words:
-        raise exceptions.AutosubException(_("\nError: Input is invalid."))
 
     if args.stop_words_1:
         stop_words_1 = args.stop_words_1.split(" ")
@@ -836,8 +838,8 @@ def sub_processing(  # pylint: disable=too-many-branches, too-many-statements, t
                 os.remove(audio_wav)
                 print(_("\"{name}\" has been deleted.").format(name=audio_wav))
 
-        src_sub_backup = copy.deepcopy(src_sub)
-        new_sub.events = src_sub_backup.auto_get_vtt_words_index(
+        vtt_sub_backup = copy.deepcopy(vtt_sub)
+        new_sub.events = vtt_sub_backup.auto_get_vtt_words_index(
             events=ass_events,
             stop_words_set_1=stop_words_set_1,
             stop_words_set_2=stop_words_set_2,
@@ -848,34 +850,35 @@ def sub_processing(  # pylint: disable=too-many-branches, too-many-statements, t
             print(_("External regions are not enough.\n"
                     "Use manual method instead."))
             args.join_control = args.join_control | {"man"}
-            del src_sub_backup
+            del vtt_sub_backup
         else:
-            src_sub = src_sub_backup
+            vtt_sub = vtt_sub_backup
 
     except KeyError:
         pass
 
     try:
         args.join_control.remove("man")
-        new_sub.events = src_sub.man_get_vtt_words_index()
+        new_sub.events = vtt_sub.man_get_vtt_words_index()
     except KeyError:
         pass
 
-    if r"\k" in args.join_control:
-        key_tag = r"\k"
-    elif r"\kf" in args.join_control:
-        key_tag = r"\kf"
-    elif r"\ko" in args.join_control:
-        key_tag = r"\ko"
-    else:
-        key_tag = ""
-    if not args.style_name:
-        args.style_name = ["default"]
-    src_sub.text_to_ass_events(
-        events=new_sub.events,
-        key_tag=key_tag,
-        style_name=args.style_name[0],
-        is_cap="cap" in args.join_control)
+    if vtt_sub:
+        if r"\k" in args.join_control:
+            key_tag = r"\k"
+        elif r"\kf" in args.join_control:
+            key_tag = r"\kf"
+        elif r"\ko" in args.join_control:
+            key_tag = r"\ko"
+        else:
+            key_tag = ""
+        if not args.style_name:
+            args.style_name = ["default"]
+        vtt_sub.text_to_ass_events(
+            events=new_sub.events,
+            key_tag=key_tag,
+            style_name=args.style_name[0],
+            is_cap="cap" in args.join_control)
 
     try:
         args.join_control.remove("trim")

@@ -317,13 +317,14 @@ class YTBWebVTT:  # pylint: disable=too-many-nested-blocks, too-many-branches, t
 
     @classmethod
     def from_pysubs2_file(cls,
-                          path):
+                          path,
+                          encoding="utf-8"):
         """
         Get youtube WebVTT from a pysubs2 supported file(estimated times).
         """
         subs = cls()
         subs.path = path
-        src_sub = pysubs2.SSAFile.load(path)
+        src_sub = pysubs2.SSAFile.load(path, encoding=encoding)
         subs.styles = src_sub.styles
         subs.info = src_sub.info
         for event in src_sub.events:
