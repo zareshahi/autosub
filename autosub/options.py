@@ -435,13 +435,15 @@ def get_cmd_parser():  # pylint: disable=too-many-statements
         nargs='*',
         help=_("Control the way to join and split subtitles' events. "
                "Key tag choice: [\"\\k\", \"\\ko\", \"\\kf\", (None)] (default: None). "
-               "Events manual adjustment: [\"man\", \"ext-auto\", "
-               "\"punct-auto\"] (default: man). "
-               "You can choose \"man\" and one \"*-auto\" method at the same time "
+               "Events manual adjustment: [\"man\", \"auto-ext\", "
+               "\"auto-punct\"] (default: man). "
+               "You can choose \"man\" and one \"auto-*\" method at the same time "
                "which allows you to automatically adjust events at first "
                "and then manually adjust them. "
                "Capitalized the first word and add a full stop: [\"cap\", (None)] (default: None). "
                "Trim regions after processing: [\"trim\", (None)] (default: None). "
+               "Keep the indexes from subtitles events when input is a subtitles file:"
+               " [\"keep-events\", (None)] (default: None). "
                "(arg_num >= 1)"))
 
     network_group.add_argument(

@@ -70,6 +70,7 @@ Click up arrow to go back to TOC.
 - Add support for googletrans v4.0.0rc1 in class ManualTranslator.
 - Add more subtitles format support in method sub_processing to join and split the events of the subtitles.
 - Add leading and trailing whitespace stripping in class method from_json_file in class YTBWebVTT.
+- Add keep_events in --join-control to keep the indexes from subtitles events.
 
 #### Changed(Unreleased)
 

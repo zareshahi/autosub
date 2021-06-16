@@ -741,11 +741,13 @@ def sub_processing(  # pylint: disable=too-many-branches, too-many-statements, t
     elif args.input.endswith('json'):
         vtt_sub = sub_utils.YTBWebVTT.from_json_file(args.input)
     else:
-        if "punct-auto" in args.join_control:
+        if "auto-punct" in args.join_control:
             src_sub = pysubs2.SSAFile.load(args.input)
-            args.join_control = args.join_control - {"ext-auto"}
+            args.join_control = args.join_control - {"auto-ext"}
         else:
-            vtt_sub = sub_utils.YTBWebVTT.from_pysubs2_file(args.input)
+            vtt_sub = sub_utils.YTBWebVTT.from_pysubs2_file(
+                args.input,
+                keep_events="keep-events" in args.join_control)
             new_sub.styles = vtt_sub.styles
             new_sub.info = vtt_sub.info
 
@@ -785,10 +787,10 @@ def sub_processing(  # pylint: disable=too-many-branches, too-many-statements, t
             ext_ass = pysubs2.SSAFile.load(args.ext_regions)
             ass_events = ext_ass.events
         else:
-            args.join_control = args.join_control - {"ext-auto"}
+            args.join_control = args.join_control - {"auto-ext"}
 
     try:
-        args.join_control.remove("punct-auto")
+        args.join_control.remove("auto-punct")
         new_sub.events = sub_utils.merge_src_assfile(
             subtitles=src_sub,
             max_join_size=args.max_join_size,
@@ -801,7 +803,7 @@ def sub_processing(  # pylint: disable=too-many-branches, too-many-statements, t
         pass
 
     try:
-        args.join_control.remove("ext-auto")
+        args.join_control.remove("auto-ext")
         # get ass events from external regions
         if not ass_events:
             print(_("External regions file is a video or audio file."))

@@ -68,6 +68,7 @@
 - 添加googletrans v4.0.0rc1支持在类ManualTranslator中。
 - 添加更多的字幕格式支持在方法sub_processing中，以方便分割及合并字幕行。
 - 添加去除首尾空格的功能在类YTBWebVTT的类方法from_json_file中。
+- 添加keep_events到--join-control中以在分割及合并字幕行中，保留字幕文件中字幕行的时间戳。
 
 #### 改动(未发布)
 

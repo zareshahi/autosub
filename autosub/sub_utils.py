@@ -318,6 +318,7 @@ class YTBWebVTT:  # pylint: disable=too-many-nested-blocks, too-many-branches, t
     @classmethod
     def from_pysubs2_file(cls,
                           path,
+                          keep_events=False,
                           encoding="utf-8"):
         """
         Get youtube WebVTT from a pysubs2 supported file(estimated times).
@@ -327,9 +328,15 @@ class YTBWebVTT:  # pylint: disable=too-many-nested-blocks, too-many-branches, t
         src_sub = pysubs2.SSAFile.load(path, encoding=encoding)
         subs.styles = src_sub.styles
         subs.info = src_sub.info
-        for event in src_sub.events:
-            subs.vtt_words.extend(split_vtt_word(VTTWord(
-                word=event.text, start=event.start, end=event.end)))
+        if not keep_events:
+            for event in src_sub.events:
+                subs.vtt_words.extend(split_vtt_word(VTTWord(
+                    word=event.text, start=event.start, end=event.end)))
+        else:
+            for event in src_sub.events:
+                subs.vtt_words.extend(split_vtt_word(VTTWord(
+                    word=event.text, start=event.start, end=event.end)))
+                subs.vtt_words_index.append(len(subs.vtt_words))
         return subs
 
     def text_to_ass_events(self,
@@ -408,7 +415,7 @@ class YTBWebVTT:  # pylint: disable=too-many-nested-blocks, too-many-branches, t
 
     def man_get_vtt_words_index(self):
         """
-        Get end timestamps from a SSAEvent list automatically by external regions.
+        Get end timestamps from a SSAEvent list manually by external txt.
         """
         events = []
         path = os.path.splitext(self.path)[0] + ".txt"
@@ -418,6 +425,8 @@ class YTBWebVTT:  # pylint: disable=too-many-nested-blocks, too-many-branches, t
             input_m=input)
         input(_("Wait for the events manual adjustment. "
                 "Press Enter to continue."))
+        del self.vtt_words_index
+        self.vtt_words_index = []
         line_count = 0
         i = 0
         j = 0
