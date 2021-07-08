@@ -512,7 +512,7 @@ def validate_aovp_args(args):  # pylint: disable=too-many-branches, too-many-ret
             if not args.keep:
                 raise exceptions.AutosubException(
                     _("You've already input times. "
-                      "No works done."))
+                      "No work done."))
 
         else:
             print(_("Speech language not provided. "
@@ -734,16 +734,15 @@ def sub_processing(  # pylint: disable=too-many-branches, too-many-statements, t
     if args.join_control:
         args.join_control = set(args.join_control)
     else:
-        args.join_control = {"man"}
+        raise exceptions.AutosubException(_("\nNo work done."))
 
     if args.input.endswith('vtt'):
         vtt_sub = sub_utils.YTBWebVTT.from_vtt_file(args.input)
     elif args.input.endswith('json'):
         vtt_sub = sub_utils.YTBWebVTT.from_json_file(args.input)
     else:
-        if "auto-punct" in args.join_control:
+        if "auto-ext" not in args.join_control and "man" not in args.join_control:
             src_sub = pysubs2.SSAFile.load(args.input)
-            args.join_control = args.join_control - {"auto-ext"}
         else:
             vtt_sub = sub_utils.YTBWebVTT.from_pysubs2_file(
                 args.input,
@@ -935,8 +934,7 @@ def sub_processing(  # pylint: disable=too-many-branches, too-many-statements, t
     print(_("\"processed\" subtitles file "
             "created at \"{}\".").format(subtitles_file_path))
 
-    if not args.output_files:
-        raise exceptions.AutosubException(_("\nAll work done."))
+    raise exceptions.AutosubException(_("\nAll work done."))
 
 
 def sub_conversion(  # pylint: disable=too-many-branches, too-many-statements, too-many-locals

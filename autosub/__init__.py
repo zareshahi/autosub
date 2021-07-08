@@ -100,7 +100,7 @@ def main():  # pylint: disable=too-many-branches, too-many-statements, too-many-
                 if not args.audio_process:
                     raise exceptions.AutosubException(
                         _("Error: The args of \"-ap\"/\"--audio-process\" are wrong."
-                          "\nNo works done."))
+                          "\nNo work done."))
                 if 'o' in args.audio_process:
                     args.keep = True
                     prcs_file = ffmpeg_utils.audio_pre_prcs(
@@ -111,7 +111,7 @@ def main():  # pylint: disable=too-many-branches, too-many-statements, too-many-
                         input_m=input_m)
                     if not prcs_file:
                         raise exceptions.AutosubException(
-                            _("No works done."))
+                            _("No work done."))
 
                     args.input = prcs_file
                     raise exceptions.AutosubException(
