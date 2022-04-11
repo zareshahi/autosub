@@ -165,7 +165,7 @@ Include dependencies installation commands.
 Install from `alpha` branch.(latest autosub alpha release)
 
 ```bash
-apt install ffmpeg python3 curl git -y
+apt install ffmpeg python3 python3-dev curl git -y
 curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
 python3 get-pip.py
 pip install git+https://github.com/BingLingGroup/autosub.git@alpha ffmpeg-normalize langcodes
@@ -174,7 +174,7 @@ pip install git+https://github.com/BingLingGroup/autosub.git@alpha ffmpeg-normal
 Install from `dev` branch.(latest autosub dev version)
 
 ```bash
-apt install ffmpeg python3 curl git -y
+apt install ffmpeg python3 python3-dev curl git -y
 curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
 python3 get-pip.py
 pip install git+https://github.com/BingLingGroup/autosub.git@dev ffmpeg-normalize langcodes
