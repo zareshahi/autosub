@@ -769,7 +769,10 @@ def list_to_googletrans(  # pylint: disable=too-many-locals, too-many-arguments,
 
     if translator != ManualTranslator and src_language == "auto":
         content_to_trans = '\n'.join(text_list[i:partial_index[0]])
-        result_src = translator.detect(content_to_trans).lang
+        if len(content_to_trans) > 0:
+            result_src = translator.detect(content_to_trans).lang
+        else:
+            result_src = ""
     else:
         result_src = src_language
 
